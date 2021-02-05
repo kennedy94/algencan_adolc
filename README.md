@@ -122,10 +122,13 @@ Run the main program:
 
 > gfortran
 
-3 In Build Options$>>$Search Directories, add paths:
+3 In Build Options >> Search Directories, add paths:
 
 > /home/USER/adolc\_base/include
 
 > /home/USER/adolc\_base/lib64
 
 in Compiler, Linker, and Resource compiler
+
+
+4. Now we can run the project with files algencan.c and adolc.cpp
