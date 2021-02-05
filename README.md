@@ -13,7 +13,7 @@ Before installing ADOL-C, we first need to install two libraries: 1. Boost 1.75.
 
 ### Boost 1.75.0 INSTALLATION
 
-1 Download boost_1_75_0.tar.bz2 in https://www.boost.org/users/download/
+1 Download boost_1_75_0.tar.bz2 in (https://www.boost.org/users/download/)
 2 Extract the file in the desired directory
 > tar --bzip2 -xf /path/to/boost_1_75_0.tar.bz2
 3 Open boost directory > cd path/to/boost_1_75_0
@@ -24,7 +24,7 @@ Before installing ADOL-C, we first need to install two libraries: 1. Boost 1.75.
 
 Colpack is used by ADOL-C to treat sparse matrices.
 
-1 Download Colpack in https://github.com/CSCsw/ColPack/releases
+1 Download Colpack in (https://github.com/CSCsw/ColPack/releases)
 2 Extract the file
 3 Run the following commands in Colpack directory:
     > autoreconf -vif
@@ -36,7 +36,7 @@ Colpack is used by ADOL-C to treat sparse matrices.
 
 If Boost and Colpack are installed successfully, we may now install ADOL 2.7.3
 
-1 Download ADOL-C in https://github.com/coin-or/ADOL-C
+1 Download ADOL-C in (https://github.com/coin-or/ADOL-C)
 2 Extract the file
 3 Run the following commands in ADOL-C directory:
     > autoreconf -fi
@@ -51,7 +51,7 @@ If the installation is successfull, ADOL-C external libraries are generated in /
 
 ## ALGENCAN 3.1.1 INSTALLATION
 
-1 Download ALGENCAN 3.1.1 in https://www.ime.usp.br/~egbirgin/tango/codes.php
+1 Download ALGENCAN 3.1.1 in (https://www.ime.usp.br/~egbirgin/tango/codes.php)
 2 Extract the file 
 3 Run in ALGENCAN directory > make
 
@@ -84,13 +84,21 @@ Run the main program:
 ## Linking and compiling using Codeblocks 20.03
 
 1 Create C/C++ Console Application project.
+
 2 In Build Options >> Linker Settings, add the following libraries:
 
 > adolc.so
+
 > libColPack.so
+
 > libalgencan.a
+
 > gfortran
+
 3 In Build Options$>>$Search Directories, add paths:
+
 > /home/USER/adolc\_base/include
+
 > /home/USER/adolc\_base/lib64
+
 in Compiler, Linker, and Resource compiler
