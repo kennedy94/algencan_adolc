@@ -11,11 +11,11 @@ Before installing ADOL-C, we first need to install two libraries: 1. Boost 1.75.
 
 ## Boost 1.75.0 INSTALL
 
-    1 Download boost\_1\_75\_0.tar.bz2 \url{https://www.boost.org/users/download/};
-    2 Extract the file in the desired directory \emph{tar --bzip2 -xf /path/to/boost\_1\_75\_0.tar.bz2};
-    3 Open boost directory: \emph{cd path/to/boost\_1\_75\_0};
-    4 Run \emph{bootstrap.sh}: \emph{./bootstrap.sh --prefix=path/to/installation/prefix};
-    5 Run \emph{b2} to generate external libraries \textbackslash lib\textbackslash: \emph{./b2 install} 
+    1 Download boost\_1\_75\_0.tar.bz2 in https://www.boost.org/users/download/
+    2 Extract the file in the desired directory > tar --bzip2 -xf /path/to/boost\_1\_75\_0.tar.bz2
+    3 Open boost directory > \emph{cd path/to/boost\_1\_75\_0}
+    4 Run bootstrap.sh > ./bootstrap.sh --prefix=path/to/installation/prefix
+    5 Run b2 to generate external libraries in \lib\ >./b2 install
 
 
 \subsection{Instalação ColPack}
