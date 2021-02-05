@@ -46,6 +46,7 @@ Colpack is used by ADOL-C to treat sparse matrices.
     > ./configure --prefix=/path/to/install/
     
     > make
+    
     > make install
     
 
