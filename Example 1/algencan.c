@@ -6,7 +6,7 @@
 void c_algencan(void *myevalf, void *myevalg, void *myevalh, void *myevalc,
 void *myevaljac, void *myevalhc, void *myevalfc, void *myevalgjac,
 void *myevalgjacp, void *myevalhl, void *myevalhlp, int jcnnzmax,
-			int hnnzmax,double *epsfeas, double *epsopt, double *efstin,
+	int hnnzmax,double *epsfeas, double *epsopt, double *efstin,
 double *eostin, double *efacc, double *eoacc, char *outputfnm,
 char *specfnm, int nvparam,char **vparam, int n, double *x,
 double *l, double *u, int m, double *lambda, _Bool *equatn,
