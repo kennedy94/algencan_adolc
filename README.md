@@ -14,34 +14,57 @@ Before installing ADOL-C, we first need to install two libraries: 1. Boost 1.75.
 ### Boost 1.75.0 INSTALLATION
 
 1 Download boost_1_75_0.tar.bz2 in (https://www.boost.org/users/download/)
+
 2 Extract the file in the desired directory
+
 > tar --bzip2 -xf /path/to/boost_1_75_0.tar.bz2
-3 Open boost directory > cd path/to/boost_1_75_0
-4 Run bootstrap.sh > ./bootstrap.sh --prefix=path/to/installation/prefix
-5 Run b2 to generate external libraries in \lib\ >./b2 install
+
+3 Open boost directory
+
+> cd path/to/boost_1_75_0
+
+4 Run bootstrap.sh
+
+> ./bootstrap.sh --prefix=path/to/installation/prefix
+
+5 Run b2 to generate external libraries in \lib\
+
+>./b2 install
 
 ### Colpack 1.0.10 INSTALLATION
 
 Colpack is used by ADOL-C to treat sparse matrices.
 
 1 Download Colpack in (https://github.com/CSCsw/ColPack/releases)
+
 2 Extract the file
+
 3 Run the following commands in Colpack directory:
+
     > autoreconf -vif
+    
     > ./configure --prefix=/path/to/install/
+    
     > make
     > make install
+    
 
 ### ADOL-C INSTALLATION
 
 If Boost and Colpack are installed successfully, we may now install ADOL 2.7.3
 
 1 Download ADOL-C in (https://github.com/coin-or/ADOL-C)
+
 2 Extract the file
+
 3 Run the following commands in ADOL-C directory:
+
     > autoreconf -fi
+    
     > ./configure --enable-sparse --with-boost=PATHTOBOOST --with-colpack=PATHCOLPACK
+    
     > make
+    
     > make install
 
 where PATHTOBOOST and PATHCOLPACK is the path to Boost and Colpack directories, respectively.
@@ -52,8 +75,12 @@ If the installation is successfull, ADOL-C external libraries are generated in /
 ## ALGENCAN 3.1.1 INSTALLATION
 
 1 Download ALGENCAN 3.1.1 in (https://www.ime.usp.br/~egbirgin/tango/codes.php)
+
 2 Extract the file 
-3 Run in ALGENCAN directory > make
+
+3 Run in ALGENCAN directory
+
+> make
 
 If the installation is succeed, external library libalgencan.a is generated in PATHTOALGENCAN/lib/
 
