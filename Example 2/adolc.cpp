@@ -76,8 +76,8 @@ void myevalf(int n, double *x, double *f, int *flag) {
 	*flag = -1;
 }
 
-	/* ******************************************************************
-		 ****************************************************************** */
+/* ******************************************************************
+****************************************************************** */
 
 void myevalg(int n, double *x, double *g, int *flag) {
 
@@ -174,7 +174,7 @@ void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar, doub
 		*lmem = 1;
 		return;
 	}
- *lmem = 0;
+ 	*lmem = 0;
 
 	for (i=0;i<nnz;i++) {
 		jcval[i] = values[i];
