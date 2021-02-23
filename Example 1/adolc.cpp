@@ -45,6 +45,7 @@ void myevalfad(int n, adouble *x, adouble *f, int *flag) {
 	*f = 0.0;
 	for(i=0;i<nite;i++) {
 		ind1 = ndim * i;
+
 		for(j=i+1;j<nite;j++) {
 			ind2 = ndim * j;
 			sum = 0.0;
@@ -54,11 +55,11 @@ void myevalfad(int n, adouble *x, adouble *f, int *flag) {
 			aux = 0.0;
 			tmp = pow( 2.0 * r, 2 ) - sum;
 			if (pow( 2.0 * r, 2 ) - sum > 0.0)
-	aux = pow( 2.0 * r, 2 ) - sum;
+				aux = pow( 2.0 * r, 2 ) - sum;
 			*f = *f + pow( aux, 2);
 		}
 	}
- }
+}
 
 /* ******************************************************************
 ****************************************************************** */
@@ -78,7 +79,7 @@ void myevalcad(int n, adouble *x, int m, adouble *c, int *flag) {
 		}
 
 		c[i] = sum - pow( objrad - r, 2 );
- }
+	}
 
 }
 
