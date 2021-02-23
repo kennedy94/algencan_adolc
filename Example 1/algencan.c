@@ -7,36 +7,36 @@
 void c_algencan(void *myevalf, void *myevalg, void *myevalh, void *myevalc,
 	void *myevaljac, void *myevalhc, void *myevalfc, void *myevalgjac,
 	void *myevalgjacp, void *myevalhl, void *myevalhlp, int jcnnzmax,
-       	int hnnzmax,double *epsfeas, double *epsopt, double *efstin,
+  int hnnzmax,double *epsfeas, double *epsopt, double *efstin,
 	double *eostin, double *efacc, double *eoacc, char *outputfnm,
 	char *specfnm, int nvparam,char **vparam, int n, double *x,
 	double *l, double *u, int m, double *lambda, _Bool *equatn,
 	_Bool *linear, _Bool *coded, _Bool checkder, double *f,
 	double *cnorm, double *snorm, double *nlpsupn,int *inform);
 
-	void myevalf(int n, double *x, double *f, int *flag);
-	void myevalg(int n, double *x, double *g, int *flag);
-	void myevalh(int n, double *x, int *hrow, int *hcol, double *hval, int *hnnz,
-		      int lim, _Bool *lmem, int *flag);
-	void myevalc(int n, double *x, int ind, double *c, int *flag);
-	void myevaljac(int n, double *x, int ind, int *jcvar, double *jcval,
-		      int *jcnnz, int lim, _Bool *lmem, int *flag);
-	void myevalhc(int n, double *x, int ind, int *hcrow, int *hccol, double *hcval,
-					int *hcnnz, int lim, _Bool *lmem, int *flag);
-	void myevalfc(int n, double *x, double *f, int m, double *c, int *flag);
-	void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar,
-							double *jcval, int *jcnnz, int lim, _Bool *lmem, int *flag);
-	void myevalgjacp(int n, double *x, double *g, int m, double *p, double *q,
-									char work, _Bool *gotj, int *flag);
-	void myevalhl(int n, double *x, int m, double *lambda, double scalef,
-										     double *scalec, int *hlrow, int *hlcol, double *hlval,
-										     int *hlnnz, int lim, _Bool *lmem, int *flag);
-	void myevalhlp(int n, double *x, int m, double *lambda, double scalef,
-														      double *scalec, double *p, double *hp, _Bool *goth,
-														      int *flag);
+void myevalf(int n, double *x, double *f, int *flag);
+void myevalg(int n, double *x, double *g, int *flag);
+void myevalh(int n, double *x, int *hrow, int *hcol, double *hval, int *hnnz,
+  int lim, _Bool *lmem, int *flag);
+void myevalc(int n, double *x, int ind, double *c, int *flag);
+void myevaljac(int n, double *x, int ind, int *jcvar, double *jcval,
+  int *jcnnz, int lim, _Bool *lmem, int *flag);
+void myevalhc(int n, double *x, int ind, int *hcrow, int *hccol, double *hcval,
+  int *hcnnz, int lim, _Bool *lmem, int *flag);
+void myevalfc(int n, double *x, double *f, int m, double *c, int *flag);
+void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar,
+  double *jcval, int *jcnnz, int lim, _Bool *lmem, int *flag);
+void myevalgjacp(int n, double *x, double *g, int m, double *p, double *q,
+  char work, _Bool *gotj, int *flag);
+void myevalhl(int n, double *x, int m, double *lambda, double scalef,
+  double *scalec, int *hlrow, int *hlcol, double *hlval,
+int *hlnnz, int lim, _Bool *lmem, int *flag);
+void myevalhlp(int n, double *x, int m, double *lambda, double scalef,
+  double *scalec, double *p, double *hp, _Bool *goth,
+  int *flag);
 
-	int ndim,nite;
-	double r,objrad;
+int ndim,nite;
+double r,objrad;
 
 /* ******************************************************************
    ****************************************************************** */
