@@ -84,25 +84,6 @@ void myevalcad(int n, adouble *x, int m, adouble *c, int *flag) {
 }
 
 /* ******************************************************************
-****************************************************************** */
-void myevallad(int n, adouble *x, adouble *l, int m, double *lambda, double scalef, double *scalec, int *flag) {
-
-	int i;
-	adouble *c = new adouble[m];
-
-	myevalfad (n, x, l, flag);
-
-	*l = (*l) * scalef ;
-
-	myevalcad(n, x, m, c, flag);
-
-	for (i=0;i<m;i++)
-		*l = *l + scalec[i] * lambda[i] * c[i];
-
-	*flag = 0;
-}
-
-/* ******************************************************************
 	****************************************************************** */
 
 void myevalf(int n, double *x, double *f, int *flag) {
@@ -204,7 +185,7 @@ void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar, doub
 
 	for (i=0;i<n;i++)
 		xad[i] <<= x[i];
-	
+
 	myevalfad(n,xad,&fad,flag);
 
 	fad >>= f;
@@ -265,7 +246,7 @@ void myevalhl(int n, double *x, int m, double *lambda, double scalef, double *sc
 
 	int i,nnz,options[2];
 	double l, *values = NULL;
-	adouble lad, *xad = new adouble[n];
+	adouble lad, *cad = new adouble[m], *xad = new adouble[n];
 	unsigned int    *rind  = NULL;
 	unsigned int    *cind  = NULL;
 
@@ -276,7 +257,14 @@ void myevalhl(int n, double *x, int m, double *lambda, double scalef, double *sc
 	for (i=0;i<n;i++)
 		xad[i] <<= x[i];
 
-	myevallad(n, xad, &lad, m, lambda, scalef, scalec, flag);
+	myevalfad (n, xad, &lad, flag);
+
+	lad = lad * scalef ;
+
+	myevalcad(n, xad, m, cad, flag);
+
+		for (i=0;i<m;i++)
+			lad = lad + scalec[i] * lambda[i] * cad[i];
 
 	lad >>= l;
 	trace_off();
