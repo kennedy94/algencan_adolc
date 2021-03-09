@@ -262,8 +262,8 @@ void myevalhl(int n, double *x, int m, double *lambda, double scalef, double *sc
 
 	myevalcad(n, xad, m, cad, flag);
 
-		for (i=0;i<m;i++)
-			lad = lad + scalec[i] * lambda[i] * cad[i];
+	for (i=0;i<m;i++)
+		lad = lad + scalec[i] * lambda[i] * cad[i];
 
 	lad >>= l;
 	trace_off();
