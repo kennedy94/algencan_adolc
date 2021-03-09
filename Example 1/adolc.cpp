@@ -11,23 +11,22 @@ extern "C" {
 	void myevalf(int n, double *x, double *f, int *flag);
 	void myevalg(int n, double *x, double *g, int *flag);
 	void myevalh(int n, double *x, int *hrow, int *hcol, double *hval, int *hnnz,
-					int lim, bool *lmem, int *flag);
+		int lim, bool *lmem, int *flag);
 	void myevalc(int n, double *x, int ind, double *c, int *flag);
 	void myevaljac(int n, double *x, int ind, int *jcvar, double *jcval,
-					int *jcnnz, int lim, bool *lmem, int *flag);
+		int *jcnnz, int lim, bool *lmem, int *flag);
 	void myevalhc(int n, double *x, int ind, int *hcrow, int *hccol, double *hcval,
-					int *hcnnz, int lim, bool *lmem, int *flag);
+		int *hcnnz, int lim, bool *lmem, int *flag);
 	void myevalfc(int n, double *x, double *f, int m, double *c, int *flag);
 	void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar,
-					double *jcval, int *jcnnz, int lim, bool *lmem, int *flag);
+		double *jcval, int *jcnnz, int lim, bool *lmem, int *flag);
 	void myevalgjacp(int n, double *x, double *g, int m, double *p, double *q,
-					char work, bool *gotj, int *flag);
+		char work, bool *gotj, int *flag);
 	void myevalhl(int n, double *x, int m, double *lambda, double scalef,
-					double *scalec, int *hlrow, int *hlcol, double *hlval,
-					int *hlnnz, int lim, bool *lmem, int *flag);
+		double *scalec, int *hlrow, int *hlcol, double *hlval,
+		int *hlnnz, int lim, bool *lmem, int *flag);
 	void myevalhlp(int n, double *x, int m, double *lambda, double scalef,
-					double *scalec, double *p, double *hp, bool *goth,
-					int *flag);
+		double *scalec, double *p, double *hp, bool *goth, int *flag);
 }
 
 extern int ndim,nite;
@@ -104,7 +103,7 @@ void myevalg(int n, double *x, double *g, int *flag) {
 
 void myevalh(int n, double *x, int *hrow, int *hcol, double *hval, int *hnnz, int lim, bool *lmem, int *flag) {
 
-		*flag = -1;
+	*flag = -1;
 }
 
 /* ******************************************************************
@@ -178,8 +177,8 @@ void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar, doub
 	int i,nnz,options[4];
 	double f, *c = new double[m], *values = NULL;
 	adouble fad, *xad = new adouble[n], *cad = new adouble[m];
-	unsigned int    *rind  = NULL;
-	unsigned int    *cind  = NULL;
+	unsigned int *rind  = NULL;
+	unsigned int *cind  = NULL;
 
 	trace_on(1);
 
