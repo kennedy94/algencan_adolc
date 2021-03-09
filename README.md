@@ -139,7 +139,7 @@ in Compiler, Linker, and Resource compiler
 
 We present some results with tests in order to compare ALGENCAN performance with automatic differentiation with ADOL-C and with analytic differentiation with Example 2. We vary _nite_ value from 50 to 500.
 
-		**nite	|	ADOL-C/C (s)	|	Analytic/Fortran (s)**
+	      **nite**	|    **ADOL-C/C (s)**	|       **Analytic/Fortran (s)**
 	--------------------------------------------------------------------------
 		 50	|	  0.38		|		0.01
 		100	|	  2.51		|		0.04
