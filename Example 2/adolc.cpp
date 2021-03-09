@@ -6,253 +6,242 @@
 #include <adolc/adolc_sparse.h>
 
 extern "C" {
-	void myevalf(int n, double *x, double *f, int *flag);
+  void myevalf(int n, double *x, double *f, int *flag);
 	void myevalg(int n, double *x, double *g, int *flag);
 	void myevalh(int n, double *x, int *hrow, int *hcol, double *hval, int *hnnz,
-		int lim, bool *lmem, int *flag);
+		       int lim, bool *lmem, int *flag);
 	void myevalc(int n, double *x, int ind, double *c, int *flag);
 	void myevaljac(int n, double *x, int ind, int *jcvar, double *jcval,
-		int *jcnnz, int lim, bool *lmem, int *flag);
+		       int *jcnnz, int lim, bool *lmem, int *flag);
 	void myevalhc(int n, double *x, int ind, int *hcrow, int *hccol, double *hcval,
-		int *hcnnz, int lim, bool *lmem, int *flag);
+				 	 int *hcnnz, int lim, bool *lmem, int *flag);
 	void myevalfc(int n, double *x, double *f, int m, double *c, int *flag);
 	void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar,
-		double *jcval, int *jcnnz, int lim, bool *lmem, int *flag);
+					 double *jcval, int *jcnnz, int lim, bool *lmem, int *flag);
 	void myevalgjacp(int n, double *x, double *g, int m, double *p, double *q,
-		char work, bool *gotj, int *flag);
+					 char work, bool *gotj, int *flag);
 	void myevalhl(int n, double *x, int m, double *lambda, double scalef,
-		double *scalec, int *hlrow, int *hlcol, double *hlval,
-		int *hlnnz, int lim, bool *lmem, int *flag);
+					 double *scalec, int *hlrow, int *hlcol, double *hlval,
+				   int *hlnnz, int lim, bool *lmem, int *flag);
 	void myevalhlp(int n, double *x, int m, double *lambda, double scalef,
-		double *scalec, double *p, double *hp, bool *goth,
-		int *flag);
+					 double *scalec, double *p, double *hp, bool *goth,
+				   int *flag);
 }
 
 void myevalfad(int n, adouble *x, adouble *f, int *flag) {
 
 	*flag = 0;
 
-	 *f = 4 * pow( x[0],2 ) + 10 * pow( x[1], 2 );
+   *f = 4 * pow( x[0],2 ) + 10 * pow( x[1], 2 );
 
 }
 
 /* ******************************************************************
-	 ****************************************************************** */
+   ****************************************************************** */
 
 void myevalcad(int n, adouble *x, int m, adouble *c, int *flag) {
 
-	*flag = 0;
+   *flag = 0;
 
-	c[0] = - pow( x[0],2 ) - pow( x[1],2 );
-	c[1] =   pow( x[0],2 ) + pow( x[1],2 ) - 4.0;
+    c[0] = - pow( x[0],2 ) - pow( x[1],2 );
+    c[1] =   pow( x[0],2 ) + pow( x[1],2 ) - 4.0;
 }
 
-/* ******************************************************************
-	 ****************************************************************** */
-void myevallad(int n, adouble *x, adouble *l, int m, double *lambda, double scalef, double *scalec, int *flag) {
+  /* ******************************************************************
+     ****************************************************************** */
 
-	int i;
-	adouble *c = new adouble[m];
+  void myevalf(int n, double *x, double *f, int *flag) {
 
-	myevalfad (n, x, l, flag);
+    *flag = -1;
+  }
 
-	*l = (*l) * scalef ;
+  /* ******************************************************************
+     ****************************************************************** */
 
-	myevalcad(n, x, m, c, flag);
+  void myevalg(int n, double *x, double *g, int *flag) {
 
-	for (i=0;i<m;i++)
-		*l = *l + scalec[i] * lambda[i] * c[i];
+     *flag = -1;
+  }
 
-	*flag = 0;
+  /* ******************************************************************
+     ****************************************************************** */
 
-}
+  void myevalh(int n, double *x, int *hrow, int *hcol, double *hval, int *hnnz,
+  	     int lim, bool *lmem, int *flag) {
 
+  		*flag = -1;
+  }
 
-/* ******************************************************************
-	 ****************************************************************** */
+  /* ******************************************************************
+     ****************************************************************** */
 
-void myevalf(int n, double *x, double *f, int *flag) {
+  void myevalc(int n, double *x, int ind, double *c, int *flag) {
 
-	*flag = -1;
-}
+    *flag = -1;
+  }
 
-/* ******************************************************************
-****************************************************************** */
+  /* ******************************************************************
+     ****************************************************************** */
 
-void myevalg(int n, double *x, double *g, int *flag) {
+  void myevaljac(int n, double *x, int ind, int *jcvar, double *jcval,
+  	       int *jcnnz, int lim, bool *lmem, int *flag) {
 
-	*flag = -1;
-}
+       *flag = -1;
+  }
 
-/* ******************************************************************
-	 ****************************************************************** */
+  /* ******************************************************************
+     ****************************************************************** */
 
-void myevalh(int n, double *x, int *hrow, int *hcol, double *hval, int *hnnz, int lim, bool *lmem, int *flag) {
+  void myevalhc(int n, double *x, int ind, int *hcrow, int *hccol, double *hcval,
+  	      int *hcnnz, int lim, bool *lmem, int *flag) {
 
-	*flag = -1;
-}
+  	 *flag = -1;
+  }
 
-/* ******************************************************************
-	 ****************************************************************** */
+  /* *****************************************************************
+     ***************************************************************** */
 
-void myevalc(int n, double *x, int ind, double *c, int *flag) {
+  void myevalfc(int n, double *x, double *f, int m, double *c, int *flag) {
 
-	*flag = -1;
-}
+    *f = 4 * pow( x[0],2 ) + 10 * pow( x[1], 2 );
 
-/* ******************************************************************
-	 ****************************************************************** */
+    c[0] = - pow( x[0],2 ) - pow( x[1],2 );
+    c[1] =   pow( x[0],2 ) + pow( x[1],2 ) - 4.0;
 
-void myevaljac(int n, double *x, int ind, int *jcvar, double *jcval, int *jcnnz, int lim, bool *lmem, int *flag) {
+    *flag = 0;
+  }
 
-	*flag = -1;
-}
+  /* *****************************************************************
+     ***************************************************************** */
 
-/* ******************************************************************
-	 ****************************************************************** */
+  void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar,
+  		double *jcval, int *jcnnz, int lim, bool *lmem, int *flag) {
 
-void myevalhc(int n, double *x, int ind, int *hcrow, int *hccol, double *hcval, int *hcnnz, int lim, bool *lmem, int *flag) {
+     int i,nnz,options[4];
+     double f, *c = new double[m], *values = NULL;
+     adouble fad, *xad = new adouble[n], *cad = new adouble[m];
+   	 unsigned int    *rind  = NULL;
+   	 unsigned int    *cind  = NULL;
 
-	*flag = -1;
-}
+      trace_on(1);
+      for (i=0;i<n;i++)
+      	xad[i] <<= x[i];
+    		myevalfad(n,xad,&fad,flag);
 
-/* *****************************************************************
-	 ***************************************************************** */
+    	 fad >>= f;
+  	 trace_off();
 
-void myevalfc(int n, double *x, double *f, int m, double *c, int *flag) {
+  	 gradient(1,n,x,g);
 
-	*f = 4 * pow( x[0],2 ) + 10 * pow( x[1], 2 );
+     options[0] = 0;          /* sparsity pattern by index domains (default) */
+     options[1] = 0;          /*                         safe mode (default) */
+     options[2] = 0;          /*              not required if options[0] = 0 */
+     options[3] = 0;          /*                column compression (default) */
 
-	c[0] = - pow( x[0],2 ) - pow( x[1],2 );
-	c[1] =   pow( x[0],2 ) + pow( x[1],2 ) - 4.0;
+     trace_on(2);
+     for(i=0;i<n;i++)
+       xad[i] <<= x[i];
 
-	*flag = 0;
-}
+     myevalcad(n, xad, m, cad, flag);
 
-	/* *****************************************************************
-		 ***************************************************************** */
+     for(i=0;i<m;i++)
+       cad[i] >>= c[i];
+     trace_off();
 
-void myevalgjac(int n, double *x, double *g, int m, int *jcfun, int *jcvar, double *jcval, int *jcnnz, int lim, bool *lmem, int *flag) {
+     sparse_jac(2, m, n, 0, x, &nnz, &rind, &cind, &values, options);
 
-	int i,nnz,options[4];
-	double f, *c = new double[m], *values = NULL;
-	adouble fad, *xad = new adouble[n], *cad = new adouble[m];
-	unsigned int    *rind  = NULL;
-	unsigned int    *cind  = NULL;
+     if( nnz > lim) {
+       *lmem = 1;
+       return;
+     }
+     *lmem = 0;
 
-	trace_on(1);
+     for (i=0;i<nnz;i++) {
+       jcval[i] = values[i];
+       jcfun[i] = rind[i];
+       jcvar[i] = cind[i];
+     }
 
-	for (i=0;i<n;i++)
-		xad[i] <<= x[i];
+     *jcnnz = nnz;
 
-	myevalfad(n,xad,&fad,flag);
+     *flag = 0;
 
-	fad >>= f;
-	trace_off();
+     free(rind);
+     free(cind);
+     free(values);
+  }
 
-	gradient(1,n,x,g);
+  /* *****************************************************************
+     ***************************************************************** */
 
-	options[0] = 0;          /* sparsity pattern by index domains (default) */
-	options[1] = 0;          /*                         safe mode (default) */
-	options[2] = 0;          /*              not required if options[0] = 0 */
-	options[3] = 0;          /*                column compression (default) */
+  void myevalgjacp(int n, double *x, double *g, int m, double *p, double *q,
+  		 char work, bool *gotj, int *flag) {
 
-	trace_on(2);
-	for(i=0;i<n;i++)
-		xad[i] <<= x[i];
+     *flag = -1;
+  }
 
-	myevalcad(n, xad, m, cad, flag);
+  /* *****************************************************************
+     ***************************************************************** */
 
-	for(i=0;i<m;i++)
-		cad[i] >>= c[i];
+     void myevalhl(int n, double *x, int m, double *lambda, double scalef, double *scalec, int *hlrow, int *hlcol, double *hlval, int *hlnnz, int lim, bool *lmem, int *flag) {
 
-	trace_off();
+     	int i,nnz,options[2];
+     	double l, *values = NULL;
+     	adouble lad, *cad = new adouble[m], *xad = new adouble[n];
+     	unsigned int    *rind  = NULL;
+     	unsigned int    *cind  = NULL;
 
-	sparse_jac(2, m, n, 0, x, &nnz, &rind, &cind, &values, options);
+     	options[0] = 0;          /*                               safe mode (default) */
+     	options[1] = 0;          /*                       indirect recovery (default) */
 
-	if( nnz > lim) {
-		*lmem = 1;
-		return;
-	}
- 	*lmem = 0;
+     	trace_on(3);
+     	for (i=0;i<n;i++)
+     		xad[i] <<= x[i];
 
-	for (i=0;i<nnz;i++) {
-		jcval[i] = values[i];
-		jcfun[i] = rind[i];
-		jcvar[i] = cind[i];
-	}
+     	myevalfad (n, xad, &lad, flag);
 
-	*jcnnz = nnz;
+     	lad = lad * scalef ;
 
-	*flag = 0;
+     	myevalcad(n, xad, m, cad, flag);
 
-	free(rind);
-	free(cind);
-	free(values);
-}
+     		for (i=0;i<m;i++)
+     			lad = lad + scalec[i] * lambda[i] * cad[i];
 
-/* *****************************************************************
-	 ***************************************************************** */
+     	lad >>= l;
+     	trace_off();
 
-void myevalgjacp(int n, double *x, double *g, int m, double *p, double *q, char work, bool *gotj, int *flag) {
+     	sparse_hess(3, n, 0, x, &nnz, &rind, &cind, &values, options);
 
-	*flag = -1;
-}
+     	if( nnz > lim) {
+     		*lmem = 1;
+     		return;
+     	}
+     	*lmem = 0;
 
-/* *****************************************************************
-	 ***************************************************************** */
+     	for (i=0;i<nnz;i++) {
+     		hlval[i] = values[i];
+     		hlcol[i] = rind[i];
+     		hlrow[i] = cind[i];
+     	}
 
-void myevalhl(int n, double *x, int m, double *lambda, double scalef, double *scalec, int *hlrow, int *hlcol, double *hlval,
-	int *hlnnz, int lim, bool *lmem, int *flag) {
+     	*hlnnz = nnz;
 
-	int i,nnz,options[2];
-	double l, *values = NULL;
-	adouble lad, *xad = new adouble[n];
-	unsigned int    *rind  = NULL;
-	unsigned int    *cind  = NULL;
+     	*flag = 0;
 
-	options[0] = 0;          /*                               safe mode (default) */
-	options[1] = 0;          /*                       indirect recovery (default) */
+     	free(rind);
+     	free(cind);
+     	free(values);
+     }
 
-	trace_on(3);
-	for (i=0;i<n;i++)
-		xad[i] <<= x[i];
+  /* *****************************************************************
+     ***************************************************************** */
 
-	myevallad(n, xad, &lad, m, lambda, scalef, scalec, flag);
+  void myevalhlp(int n, double *x, int m, double *lambda, double scalef,
+  	       double *scalec, double *p, double *hp, bool *goth,
+  	       int *flag) {
 
-	lad >>= l;
-	trace_off();
+     *flag = -1;
+  }
 
-	sparse_hess(3, n, 0, x, &nnz, &rind, &cind, &values, options);
-
-	if( nnz > lim) {
-		*lmem = 1;
-		return;
-	}
-	*lmem = 0;
-
-	for (i=0;i<nnz;i++) {
-		hlval[i] = values[i];
-		hlcol[i] = rind[i];
-		hlrow[i] = cind[i];
-	}
-
-	*hlnnz = nnz;
-
-	*flag = 0;
-
-	free(rind);
-	free(cind);
-	free(values);
-}
-
-/* *****************************************************************
-	 ***************************************************************** */
-
-void myevalhlp(int n, double *x, int m, double *lambda, double scalef, double *scalec, double *p, double *hp, bool *goth, int *flag) {
-
-	 *flag = -1;
-}
-
-/* ******************************************************************
-	 ****************************************************************** */
+  /* ******************************************************************
+     ****************************************************************** */
