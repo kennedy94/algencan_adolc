@@ -135,21 +135,21 @@ in Compiler, Linker, and Resource compiler
 4. Now we can run the project with files algencan.c and adolc.cpp
 
 
-#Computional Experiments
+# Computional Experiments
 
 We present some results with tests in order to compare ALGENCAN performance with automatic differentiation with ADOL-C and with analytic differentiation with Example 2. We vary _nite_ value from 50 to 500.
 
-	**	nite	|	ADOL-C/C (s)		|	Analytic/Fortran (s)**
-	------------------------------------------------------------------------------
-	 50		|		  0.38		|			0.01
-	100		|		  2.51		|			0.04
-	150		|		 10.94		|			0.06
-	200		|		 19.61		|			0.05
-	250		|		 37.09		|			0.06
-	300		|		 52.94		|			0.10
-	350		|		116.70		|			0.15
-	400		|		182.63		|			0.21
-	450		|		261.79		|			0.28
-	500		|		380.35		|			0.37
+		**nite	|	ADOL-C/C (s)	|	Analytic/Fortran (s)**
+	--------------------------------------------------------------------------
+		 50	|	  0.38		|		0.01
+		100	|	  2.51		|		0.04
+		150	|	 10.94		|		0.06
+		200	|	 19.61		|		0.05
+		250	|	 37.09		|		0.06
+		300	|	 52.94		|		0.10
+		350	|	116.70		|		0.15
+		400	|	182.63		|		0.21
+		450	|	261.79		|		0.28
+		500	|	380.35		|		0.37
 
 We show that analytic differentiation is faster than ADOL-C, although calculate the analytic differentiation can be a complicated task with complex functions.
